@@ -20,6 +20,7 @@ class ComposerStaticInitd40c8e54211ee6fe75870229ae59ebb5
             'Slim\\Views\\' => 11,
             'Slim\\Psr7\\' => 10,
             'Slim\\Http\\' => 10,
+            'Slim\\Flash\\' => 11,
             'Slim\\' => 5,
         ),
         'P' => 
@@ -46,6 +47,10 @@ class ComposerStaticInitd40c8e54211ee6fe75870229ae59ebb5
         array (
             'DI\\' => 3,
         ),
+        'A' => 
+        array (
+            'App\\' => 4,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -65,6 +70,10 @@ class ComposerStaticInitd40c8e54211ee6fe75870229ae59ebb5
         array (
             0 => __DIR__ . '/..' . '/slim/http/src',
         ),
+        'Slim\\Flash\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/slim/flash/src',
+        ),
         'Slim\\' => 
         array (
             0 => __DIR__ . '/..' . '/slim/slim/Slim',
@@ -80,8 +89,8 @@ class ComposerStaticInitd40c8e54211ee6fe75870229ae59ebb5
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Container\\' => 
         array (
@@ -106,6 +115,10 @@ class ComposerStaticInitd40c8e54211ee6fe75870229ae59ebb5
         'DI\\' => 
         array (
             0 => __DIR__ . '/..' . '/php-di/php-di/src',
+        ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
         ),
     );
 
