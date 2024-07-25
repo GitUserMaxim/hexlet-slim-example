@@ -5,23 +5,14 @@
 </head>
 <body>
   <h1>Список пользователей</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nname</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php foreach ($users as $user): ?>
-        <tr>
-          <td><?= $user['id'] ?></td>
-          <td><?= htmlspecialchars($user['nickname']) ?></td>
-          <td><?= htmlspecialchars($user['email']) ?></td>
-        </tr>
-      <?php endforeach; ?>
-    </tbody>
-  </table>
+  <ul>
+    <?php foreach ($users as $user): ?>
+      <li>
+        <strong>ID:</strong> <?= $user['id'] ?>,
+        <strong>Nickname:</strong> <?= $user['nickname'] ?>,
+        <strong>Email:</strong> <?= $user['email'] ?>
+      </li>
+    <?php endforeach; ?>
+  </ul>
 </body>
 </html>

@@ -18,7 +18,7 @@ $app->get('/users/new', function ($request, $response) {
     return $this->get('renderer')->render($response, 'users/new.phtml');
 });
 
-$app->post('/users/new', function ($request, $response) {
+$app->post('/users', function ($request, $response) {
     $userData = $request->getParsedBody();
 
     // Генерация случайного id
@@ -43,23 +43,26 @@ $app->post('/users/new', function ($request, $response) {
 
 $app->get('/users', function ($request, $response) {
     $usersJsonFile = __DIR__. '/../data/users.json';
-
+    // Проверка на существование файла
+    if (!file_exists($usersJsonFile)) {
+        throw new \RuntimeException('File users.json not found');
+    }
     // Чтение данных из файла
     $usersJson = file_get_contents($usersJsonFile);
-
     // Обработка ошибок при чтении файла
     if ($usersJson === false) {
         throw new \RuntimeException('Failed to read users.json file');
     }
-
     // Разбор JSON
     $users = json_decode($usersJson, true);
-
     // Обработка ошибок при разборе JSON
     if (json_last_error() !== JSON_ERROR_NONE) {
         throw new \RuntimeException('Invalid JSON in users.json file');
     }
-
+    // Проверка на тип данных
+    if (!is_array($users)) {
+        throw new \RuntimeException('Invalid data type in users.json file');
+    }
     return $this->get('renderer')->render($response, 'users/index.phtml', ['users' => $users]);
 });
 
